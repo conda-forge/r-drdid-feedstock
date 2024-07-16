@@ -1,4 +1,4 @@
-{% set version = '1.0.6' %}
+{% set version = "1.0.7" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/DRDID_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/DRDID/DRDID_{{ version }}.tar.gz
-  sha256: e7cb0bafbec2be0eeda72303c22775c33a61c94ad9d5934818ac6cb3c0b430bf
+  sha256: 2edf733fda1319a2be7a16370e46e82e73045e02f73678e175ed49fe6cb99028
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   noarch: generic
   rpaths:
@@ -42,12 +42,8 @@ about:
   home: https://psantanna.com/DRDID/
   dev_url: https://github.com/pedrohcgs/DRDID
   license: GPL-3.0-only
-  summary: Implements the locally efficient doubly robust difference-in-differences (DiD) estimators
-    for the average treatment effect proposed by Sant'Anna and Zhao (2020) <doi:10.1016/j.jeconom.2020.06.003>.
-    The estimator combines inverse probability weighting and outcome regression estimators
-    (also implemented in the package) to form estimators with more attractive statistical
-    properties. Two different estimation methods can be used to estimate the nuisance
-    functions.
+  summary: Implements the locally efficient doubly robust difference-in-differences (DiD) estimators for the average treatment effect proposed by Sant'Anna and Zhao (2020) <doi:10.1016/j.jeconom.2020.06.003>. The estimator combines inverse probability weighting and outcome regression estimators (also implemented in the package)
+    to form estimators with more attractive statistical properties. Two different estimation methods can be used to estimate the nuisance functions.
   license_family: GPL3
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
