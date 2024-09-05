@@ -1,4 +1,4 @@
-{% set version = "1.0.7" %}
+{% set version = "1.1.0" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/DRDID_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/DRDID/DRDID_{{ version }}.tar.gz
-  sha256: 2edf733fda1319a2be7a16370e46e82e73045e02f73678e175ed49fe6cb99028
+  sha256: 25311a94a2df2c98a4b58a5f2c318cbdee0983bd9f2d8fd89790ea9f75f23af5
 
 build:
   merge_build_host: true  # [win]
