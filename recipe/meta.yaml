@@ -1,6 +1,5 @@
 {% set version = "1.1.0" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-drdid
@@ -13,7 +12,6 @@ source:
   sha256: 25311a94a2df2c98a4b58a5f2c318cbdee0983bd9f2d8fd89790ea9f75f23af5
 
 build:
-  merge_build_host: true  # [win]
   number: 0
   rpaths:
     - lib/R/lib/
@@ -25,6 +23,8 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
     - r-bmisc                      # [build_platform != target_platform]
     - r-rcpp                       # [build_platform != target_platform]
+    - r-fastglm                    # [build_platform != target_platform]
+    - r-parglm                     # [build_platform != target_platform]
     - r-trust                      # [build_platform != target_platform]
     - {{ compiler('c') }}          # [not win]
     - {{ stdlib('c') }}            # [not win]
@@ -41,11 +41,15 @@ requirements:
     - r-base
     - r-bmisc >=1.4.1
     - r-rcpp >=1.0.12
+    - r-fastglm >=0.0.3
+    - r-parglm >=0.1.7
     - r-trust
   run:
     - r-base
     - r-bmisc >=1.4.1
     - r-rcpp >=1.0.12
+    - r-fastglm >=0.0.3
+    - r-parglm >=0.1.7
     - r-trust
 
 test:
