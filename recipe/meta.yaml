@@ -1,4 +1,4 @@
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,14 +9,18 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/DRDID_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/DRDID/DRDID_{{ version }}.tar.gz
-  sha256: c79c8a632067b11aee76ea920f7d44a73b06a3e158f0df2c33bf20cb08a934cb
+  sha256: 9f8515cac67ce876ba5379cdfbe96d5b7725ede9b8c1c838cc92618f830b9300
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
   skip: true  # [win]
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -24,7 +28,6 @@ requirements:
     - r-bmisc                      # [build_platform != target_platform]
     - r-rcpp                       # [build_platform != target_platform]
     - r-fastglm                    # [build_platform != target_platform]
-    - r-parglm                     # [build_platform != target_platform]
     - r-trust                      # [build_platform != target_platform]
     - {{ compiler('c') }}          # [not win]
     - {{ stdlib('c') }}            # [not win]
@@ -42,14 +45,12 @@ requirements:
     - r-bmisc >=1.4.1
     - r-rcpp >=1.0.12
     - r-fastglm >=0.0.3
-    - r-parglm >=0.1.7
     - r-trust
   run:
     - r-base
     - r-bmisc >=1.4.1
     - r-rcpp >=1.0.12
     - r-fastglm >=0.0.3
-    - r-parglm >=0.1.7
     - r-trust
 
 test:
