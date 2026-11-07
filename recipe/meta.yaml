@@ -1,4 +1,4 @@
-{% set version = "1.4.0" %}
+{% set version = "1.4.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/DRDID_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/DRDID/DRDID_{{ version }}.tar.gz
-  sha256: f2f40b1209888b687b947a5da7f3ea3c16c1c89e355ba8a52968fdb114cc187f
+  sha256: 10fe8fb5fa67579846862ee780898c3e8b5cb387060899e4c06055374fbed8ff
 
 build:
   number: 0
